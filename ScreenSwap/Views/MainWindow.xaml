@@ -1,0 +1,177 @@
+<Window
+    x:Class="ScreenSwap.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid x:Name="Root"
+          MinWidth="560"
+          MinHeight="860"
+          Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Padding="28,24" RowSpacing="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid ColumnSpacing="18">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="112" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Width="96"
+                       Height="96"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Source="ms-appx:///Resources/ScreenSwap-Enabled.ico"
+                       Grid.Column="0"
+                       Stretch="Uniform" />
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="5">
+                    <TextBlock Text="ScreenSwap"
+                               Style="{ThemeResource TitleTextBlockStyle}"
+                               FontSize="30" />
+                    <TextBlock Text="ScreenSwap quickly moves windows between displays from a global shortcut."
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               TextWrapping="Wrap" />
+                    <HyperlinkButton Content="Learn more about ScreenSwap"
+                                     Padding="0"
+                                     HorizontalAlignment="Left"
+                                     Click="LearnMore_Click" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" RowSpacing="8" MinHeight="160">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Displays"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           FontSize="16" />
+                <Border Grid.Row="1"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        Padding="12">
+                    <Grid x:Name="MonitorPickerHost" />
+                </Border>
+                <TextBlock Grid.Row="2"
+                           Text="Click a display to set it as the main source."
+                           HorizontalAlignment="Center"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                <Border x:Name="MonitorWarning"
+                        Grid.Row="3"
+                        Visibility="Collapsed"
+                        Background="#FFFFF4CE"
+                        BorderBrush="#FFE2C441"
+                        BorderThickness="1"
+                        CornerRadius="6"
+                        Padding="12,8">
+                    <TextBlock x:Name="MonitorWarningMessage"
+                               Foreground="#FF5D4B00"
+                               TextWrapping="Wrap" />
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="2" RowSpacing="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Shortcuts"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           FontSize="16" />
+                <StackPanel x:Name="ShortcutRowsHost"
+                            Grid.Row="1"
+                            Spacing="8" />
+            </Grid>
+
+            <Grid Grid.Row="3"
+                  Grid.RowSpan="2"
+                  RowSpacing="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Appearance &amp; behavior"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           FontSize="16" />
+
+                <Border Grid.Row="1"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        Padding="14,10">
+                    <Grid ColumnSpacing="14">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="2*" MinWidth="150" />
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="64" />
+                        </Grid.ColumnDefinitions>
+                        <FontIcon Glyph="&#xE9D2;"
+                                  FontFamily="Segoe Fluent Icons"
+                                  FontSize="20"
+                                  Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="Animation duration" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                            <TextBlock Text="Window movement animation length"
+                                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                        <Slider x:Name="AnimationDurationSlider"
+                                Grid.Column="2"
+                                Minimum="0"
+                                Maximum="500"
+                                StepFrequency="5"
+                                ValueChanged="AnimationDurationSlider_ValueChanged" />
+                        <TextBlock x:Name="AnimationDurationValue"
+                                   Grid.Column="3"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Right" />
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="2"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        Padding="14,10">
+                    <Grid ColumnSpacing="14">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="160" />
+                        </Grid.ColumnDefinitions>
+                        <FontIcon Glyph="&#xE790;"
+                                  FontFamily="Segoe Fluent Icons"
+                                  FontSize="20"
+                                  Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="Theme" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                            <TextBlock Text="Choose the settings window appearance"
+                                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                        <ComboBox x:Name="ThemeComboBox"
+                                  Grid.Column="2"
+                                  HorizontalAlignment="Stretch"
+                                  SelectionChanged="ThemeComboBox_SelectionChanged">
+                            <ComboBoxItem Content="System" />
+                            <ComboBoxItem Content="Light" />
+                            <ComboBoxItem Content="Dark" />
+                        </ComboBox>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

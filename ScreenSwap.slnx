@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Files/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="LICENSE" />
+    <File Path="PRIVACY.md" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="ScreenSwap.Agent/ScreenSwap.Agent.csproj" />
+  <Project Path="ScreenSwap.Configuration/ScreenSwap.Configuration.csproj" />
+  <Project Path="ScreenSwap.Core/ScreenSwap.Core.csproj" />
+  <Project Path="ScreenSwap.Windows/ScreenSwap.Windows.csproj" />
+  <Project Path="ScreenSwap/ScreenSwap.csproj" />
+</Solution>

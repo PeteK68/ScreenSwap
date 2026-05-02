@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ScreenSwap</RootNamespace>
+    <AssemblyName>ScreenSwap</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <GenerateNeutralResourcesLanguageAttribute>true</GenerateNeutralResourcesLanguageAttribute>
+    <UseWinUI>true</UseWinUI>
+    <WindowsPackageType>None</WindowsPackageType>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <NuGetAudit>false</NuGetAudit>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ScreenSwap-Enabled.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="artifacts\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <EmbeddedResource Remove="artifacts\**" />
+    <None Remove="artifacts\**" />
+    <None Remove="Images\**" />
+    <Page Remove="artifacts\**" />
+    <Page Remove="Images\**" />
+    <PRIResource Remove="artifacts\**" />
+    <Resource Remove="artifacts\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="artifacts\**;bin\**;obj\**;Images\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ScreenSwap.Configuration\ScreenSwap.Configuration.csproj" />
+    <ProjectReference Include="..\ScreenSwap.Windows\ScreenSwap.Windows.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ScreenSwap-Enabled.ico" />
+    <Content Include="Resources\ScreenSwap-Enabled.ico" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

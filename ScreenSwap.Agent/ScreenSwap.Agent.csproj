@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ScreenSwap.Agent</RootNamespace>
+    <AssemblyName>ScreenSwap.Agent</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ApplicationIcon>..\ScreenSwap\Resources\ScreenSwap-Enabled.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ScreenSwap.Configuration\ScreenSwap.Configuration.csproj" />
+    <ProjectReference Include="..\ScreenSwap.Core\ScreenSwap.Core.csproj" />
+    <ProjectReference Include="..\ScreenSwap.Windows\ScreenSwap.Windows.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\ScreenSwap\Resources\ScreenSwap-Enabled.ico" Link="Resources\ScreenSwap-Enabled.ico" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\ScreenSwap\Resources\ScreenSwap-Disabled.ico" Link="Resources\ScreenSwap-Disabled.ico" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
